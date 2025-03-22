@@ -2,7 +2,7 @@
     {
         "name":        "LIBERTY",
         "subtitle":    "Counter-Strike 2",
-        "description": "Liberty is one of the most challenging yet fun projects I've had the pleasure of working on. I was responsible for designing the layout, creating art assets, and decorating the environment. I wanted to put emphasis on a rather under utilized game mechanic in Counter-Strike: bullet penetrable surfaces. Eliminating a player by shooting them through a wall like an action hero is one of the most satisfying feelings in Counter-Strike, which is why I designed the main focal point on the map to center around a gazebo-like structure covered with tarps that the player can shoot through and peek over. This allows for a variety of dynamic gameplay outcomes and rewards creative players with cheeky ways to gain the upper hand on an opponent. During development, I learned countless valuable lessons about creating unique and competitive gameplay experiences. I even got to visit the real life Liberty Island to take reference pictures so I could ensure the map looked photo realistic when the art pass was conducted.",
+        "description": "Liberty is one of the most challenging yet fun projects I've had the pleasure of working on. I was responsible for designing the layout, creating art assets, and decorating the environment."
         "slideA":      "showcase1_a.png",
         "slideB":      "showcase1_b.png",
         "slideC":      "showcase1_c.png",
