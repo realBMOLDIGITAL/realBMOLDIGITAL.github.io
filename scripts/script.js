@@ -58,7 +58,7 @@ fetch('../project-list.json')
                 <h3 class="h5 text-white-50 text-center text-md-start mb-3">${entry.subtitle}</h3>
                 <p class="text-white">${entry.description}</p>
                 <a type="button" class="btn btn-lg btn-success d-block d-md-inline-block text-white fw-bold" href="${entry.link}" target="_blank">Download & Play</a>
-                <a type="button" class="btn ms-3 btn-lg btn-outline-primary text-primary d-block d-md-inline-block onhovwhite" href="${entry.link}" target="_blank" data-bs-toggle="modal" data-bs-target="#modalFor${entry.name.replace(/[^a-zA-Z]/g, '').toLowerCase()}">Project Breakdown</a>
+                <a type="button" class="btn ms-3 btn-lg btn-outline-primary text-primary d-block d-md-inline-block onhovwhite" href="" target="_blank" data-bs-toggle="modal" data-bs-target="#modalFor${entry.name.replace(/[^a-zA-Z]/g, '').toLowerCase()}">Project Breakdown</a>
             </div>
             <div class="col col-1 d-none d-xxl-block"></div>
         </div>
