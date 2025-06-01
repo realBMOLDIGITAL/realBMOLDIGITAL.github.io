@@ -3,30 +3,17 @@
         "id":            0,
         "name":          "Splat",
         "subtitle":      "Counter-Strike 2",
-        "description":   "Splat is a Wingman map set in a Paintball Arena, built in the rural farmlands of Kentucky. This map puts emphasis on fast-paced gameplay and close-quarters combat, where players can navigate around makeshift obstacles like inflatable barriers and paint-splattered wooden structures to gain the upper hand.",
+        "description":   "Splat is a close-quarters Wingman map set in a vibrant paintball arena nestled in the rural farmlands of Kentucky. As an avid paintballer myself, I wanted to shape the gameplay around having tight routes and dynamic engagements that really embody the adrenaline pumping feeling you get while playing paintball on a hot summer day.",
         "slideA":        "splat_a.png",
         "slideB":        "splat_b.png",
         "slideC":        "splat_c.png",
         "slideD":        "splat_d.png",
         "slideE":        "splat_e.png",
         "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3439120481",
-        "designprocess": "The objective while creating Splat was to design a gameplay experience that mirrors the real life adrenaline pumping sport of paintball. The map is very compact to ensure rounds are fast paced and players must take cover between wood palettes and inflatable bags to win control of this makeshift battlefield. As an avid paintballer, creating a map with the theme of a sport I love was inevitable and I am super proud that I was finally able to help bring Splat to life."
+        "designprocess": "I was the project lead and level designer for Splat. I pitched the theme, laid out the initial design, and saw the project through from early sketch to final art pass. Working with environment artist Cooper Furtak, we were able to bring Splat to life as a vibrant, believable paintball field packed with personality and energy. The core gameplay hook revolves around fast-paced, close-quarters combat where decision-making and positioning matter just as much as firepower. Designed specifically for Wingman, Splat features a compact layout that forces early engagements but layers in strategic complexity through multiple attack routes and dynamic defensive choices. The central bombsite is surrounded by inflatable bunkers, wooden palettes, and key landmarks like a parked bus and a wooden “castle” that acts as a sniper perch. Ts can directly attack the site from 2 main options — which include a risky push through or around the bus or a flank via the elevated blue building — while CTs must make real-time decisions on how to allocate their defense between site and a crucial off-site control area that I refer to as the “power zone.” This area offers an alternate route to site and forces both teams to constantly reassess their positioning, encouraging mind games and adaptive strategies. The map's tight geometry also levels the playing field on eco rounds, giving players with shotguns or smart angles a real chance to shine against stronger buys. Visually, I wanted the map to reflect the lively, scrappy nature of paintball arenas I’ve played in — colorful, cluttered, and a little chaotic. The setting — a colorful makeshift battlefield in the Kentucky farmlands — gave us the creative freedom to include classic paintball features like inflatable bunkers, plywood walls, and referee towers, all soaked in bright splashes of color. I worked closely with Cooper to ensure the art direction aligned with the gameplay: every visual element serves a purpose, from the way paint splatters subtly guide the eye to areas of engagement, to the use of distinct landmark structures for callouts and orientation. We developed a mood board to stay aligned on tone and aesthetics, ensuring the final space felt authentic, playful, and competitive. My goal with Splat was to create something punchy, readable, and undeniably fun. Through focused playtesting with both casual players and fellow game designers, I was able to tune the layout until sessions became so engaging that testers wanted to keep playing even after the tests had ended. That was the moment I knew Splat was ready — and I’m incredibly proud of how it turned out."
     },
     {
         "id":            1,
-        "name":          "Liberty [Work In Progress]",
-        "subtitle":      "Counter-Strike 2",
-        "description":   "Liberty is an experimental Wingman map set on Liberty Island, reimagined as a fictional biohazard research center that has opened following the decommissioning of the island's tourist attractions. The map explores the use of bullet-penetrable surfaces and the relatively untapped potential of dynamic shadows.",
-        "slideA":        "liberty_a.png",
-        "slideB":        "liberty_b.png",
-        "slideC":        "liberty_c.png",
-        "slideD":        "liberty_d.png",
-        "slideE":        "liberty_e.png",
-        "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3470488654",
-        "designprocess": "Liberty is one of the most challenging yet rewarding projects I've had the pleasure of working on. I was responsible for designing the layout, creating art assets, and decorating the environment. My goal was to emphasize a rather underutilized mechanic in Counter-Strike: bullet-penetrable surfaces. Taking out an opponent by shooting through a wall like an action hero is one of the most satisfying moments in the game, which is why I made it a central feature. The main focal point of the map is a gazebo-like structure covered in tarps that players can shoot through and peek over. The Source 2 engine's lighting system supports dynamic shadow casting, which I leveraged in this area. CTs can hold strong positions near the tarp, but at the cost of having their shadows projected onto it—giving Ts just enough information to go for those stylish wallbang kills. This setup creates dynamic, high-reward gameplay and encourages players to think creatively and use the environment to their advantage. Throughout development, I learned countless valuable lessons about building unique, competitive gameplay spaces. I even visited Liberty Island in real life to take reference photos and ensure the map looks as photorealistic as possible during the ongoing art pass."
-    },
-    {
-        "id":            2,
         "name":          "Debris [Work In Progress]",
         "subtitle":      "Counter-Strike 2",
         "description":   "Debris is a Wingman map centered around a military plane that has crash-landed in Madagascar. After the local villagers evacuated, smugglers moved in—turning the crash site and its valuable cargo into a black market hub.",
@@ -36,7 +23,20 @@
         "slideD":        "debris_d.jpg",
         "slideE":        "debris_e.jpg",
         "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3456578228",
-        "designprocess": "My approach to Debris was quite different from previous projects, as it was the first map where I wasn't the project lead and had to work within preset guidelines. I was responsible for designing the layout and blocking it out in-engine for playtesting and refinement, preparing it for the art team. Gameplay begins with the Ts moving down a large forking path—one leading to long-range engagements, the other to close-quarters combat. The 'long' route pushes players into an open no man's land scattered with rocks and a severed plane wing, where Ts can contest control of a connector leading to the site, as well as the body of the crashed plane at the back. The close-range option routes Ts through a house, giving them the choice to emerge from the bottom floor or take high angles from an upstairs balcony. For added strategic depth, the elevated connector accessible via the 'long' route can also be reached with a buddy boost, allowing Ts to bypass the open engagement entirely. This gives the Ts a large variety of approach options, so to balance it out, two of these pathways require them to drop down, creating a sound cue that reveals their position. CTs also have several strong spots to hold and defend the site. Working on Debris was a super valuable experience, as it helped me get comfortable communicating with other teams. I would have weekly check ins with the art team to give them art feedback and to make sure the gameplay was staying in tact while also allowing for them to get creative with the environment decoration in ways I initially didn't account for, finding middle ground that didn't compromise either gameplay or art. The team is super excited about this one and we are pushing very hard to create a product that showcases both a beautiful setting and a wide range of gameplay opportunities."
+        "designprocess": "My approach to Debris was quite different from previous projects, as it was the first map I worked on where I wasn't the project lead and had to operate within preset guidelines. I was responsible for designing the layout, blocking it out in-engine for playtesting and refinement, and preparing it for the artists. Gameplay begins with the Ts moving down a large forking path—one leading to long-range engagements, the other to close-quarters combat. The long route pushes players into an open no man's land scattered with rocks and a severed plane wing, where Ts can contest control of a connector leading to the site, as well as the body of the crashed plane at the back. The close-range option routes Ts through a house, giving them the choice to emerge from the bottom floor or take high angles from an upstairs balcony. For added strategic depth, the elevated connector accessible via the long route can also be reached with a buddy boost, allowing Ts to bypass the open engagement entirely. This gives the Ts a wide variety of approach options, so to balance it out, two of these pathways require them to drop down, creating a sound cue that reveals their position. CTs also have several strong positions to hold and defend the site. Working on Debris was a hugely valuable experience, as it helped me get more comfortable collaborating across teams. I had weekly check-ins with the project lead/enviornment artist, Cooper Furtak, and technical artist, Angel Cuzacu, to provide gameplay-focused art feedback and to ensure the layout remained intact while still giving them room to creatively shape the environment. Often, this meant finding a middle ground that preserved gameplay integrity without limiting visual ambition. The team is super excited about this one, and we’re pushing hard to create a product that delivers both a visually striking setting and a broad range of gameplay opportunities."
+    },
+    {
+        "id":            2,
+        "name":          "Liberty [Work In Progress]",
+        "subtitle":      "Counter-Strike 2",
+        "description":   "Liberty is an experimental Wingman map set on Liberty Island, reimagined as a fictional biohazard research center that has opened following the decommissioning of the island's tourist attractions. The map explores the use of bullet-penetrable surfaces and the relatively untapped potential of dynamic shadows.",
+        "slideA":        "liberty_a.png",
+        "slideB":        "liberty_b.png",
+        "slideC":        "liberty_c.png",
+        "slideD":        "liberty_d.png",
+        "slideE":        "liberty_e.png",
+        "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3470488654",
+        "designprocess": "I was the project lead for this map, creating the idea for the theme, making the layout, and forming a team of artists that includes Maxime Poutiline, Pablo Fernandez, and Marius Arcay. Liberty is one of the most challenging yet rewarding projects I've had the pleasure of working on. I was responsible for designing the layout, creating art assets, and decorating the environment. My goal was to emphasize a rather underutilized mechanic in Counter-Strike: bullet-penetrable surfaces. Taking out an opponent by shooting through a wall like an action hero is one of the most satisfying moments in the game, which is why I made it a central feature. The main focal point of the map is a gazebo-like structure covered in tarps that players can shoot through and peek over. The Source 2 engine's lighting system supports dynamic shadow casting, which I leveraged in this area. CTs can hold strong positions near the tarp, but at the cost of having their shadows projected onto it—giving Ts just enough information to go for those stylish wallbang kills. This setup creates dynamic, high-reward gameplay and encourages players to think creatively and use the environment to their advantage. Throughout development, I learned countless valuable lessons about building unique, competitive gameplay spaces. I even visited Liberty Island in real life to take reference photos and ensure the map looks as photorealistic as possible during the ongoing art pass."
     },
     {
         "id":            3,
@@ -62,71 +62,35 @@
         "slideD":        "whackamole_d.jpg",
         "slideE":        "whackamole_e.jpg",
         "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3472562513",
-        "designprocess": "The goal for me was to create a new game mode for Counter-Strike 2 that was simple, fun, and easy to pick up and play. I started brainstorming ways to flip the game's traditional combat on its head, and eventually landed on the idea: what if every player had a small safety bunker, but leaving it would throw them into a warzone? Thus, the concept for Whack A Mole was born. To summarize how it plays: it's essentially a free-for-all where players are 'shrunken down' to mole size, and you have to kill the other moles. At the start of each round, you are randomly spawned into a hole in the ground, equipped with a scout rifle, a flashbang, and a frag grenade. You can't leave your hole, but you can move around inside it and crouch to hide. You're almost completely safe while crouched, but in order to win, you need to pop your head out, locate enemies (who can spawn anywhere around you), and try to snipe or blow them up. Players aren't given any armor at the start of the round, making frag grenades especially deadly. However, landing a grenade into another player's hole is extremely difficult—especially if you're crouched and can't even see the target when you throw it. Successfully landing a grenade can either instantly kill an opponent or severely weaken them, allowing body shots or limb shots to finish them off—where normally only headshots would be one-hit-kills. Flashbangs add another layer of strategy by allowing players to blind other moles, often forcing them to crouch back into their holes. This gives you the upper hand, letting you hold an angle and wait for them to recover and pop back up. Altogether, this creates a chaotic, fast-paced gameplay loop that tests players' reaction time, aim, and decision-making under pressure."
+        "designprocess": "Whack-A-Mole was a solo project I made for a 24-hour mapping jam. The goal for me was to create a new game mode for Counter-Strike 2 that was simple, fun, and easy to pick up and play. I started brainstorming ways to flip the game's traditional combat on its head, and eventually landed on the idea: what if every player had a small safety bunker, but leaving it would throw them into a warzone? Thus, the concept for Whack A Mole was born. To summarize how it plays: it's essentially a free-for-all where players are 'shrunken down' to mole size, and you have to kill the other moles. At the start of each round, you are randomly spawned into a hole in the ground, equipped with a scout rifle, a flashbang, and a frag grenade. You can't leave your hole, but you can move around inside it and crouch to hide. You're almost completely safe while crouched, but in order to win, you need to pop your head out, locate enemies (who can spawn anywhere around you), and try to snipe or blow them up. Players aren't given any armor at the start of the round, making frag grenades especially deadly. However, landing a grenade into another player's hole is extremely difficult—especially if you're crouched and can't even see the target when you throw it. Successfully landing a grenade can either instantly kill an opponent or severely weaken them, allowing body shots or limb shots to finish them off—where normally only headshots would be one-hit-kills. Flashbangs add another layer of strategy by allowing players to blind other moles, often forcing them to crouch back into their holes. This gives you the upper hand, letting you hold an angle and wait for them to recover and pop back up. Altogether, this creates a chaotic, fast-paced gameplay loop that tests players' reaction time, aim, and decision-making under pressure."
     },
+
     {
         "id":            5,
-        "name":          "Hand [Work In Progress]",
-        "subtitle":      "Counter-Strike 2",
-        "description":   "Hand is a Wingman map set in an old mountainous Peruvian village. Hand takes my love for crazy art geometry that I found with Abstract, and dials it up to eleven with both its visual style and parkour inspiring gameplay. The primary focal point of Hand is the bombsite which revolves around a literal giant stone hand, and a large statue of a woman overlooking the foliage filled battleground.",
-        "slideA":        "hand_a.jpg",
-        "slideB":        "hand_b.jpg",
-        "slideC":        "hand_c.jpg",
-        "slideD":        "hand_d.jpg",
-        "slideE":        "hand_e.jpg",
-        "link":          "",
-        "designprocess": "This map is currently still in development"
+        "name":          "The Queen's Burrow Game Design and Level Generation",
+        "subtitle":      "The Queen's Burrow",
+        "description":   "The Queen's Burrow is an indie dungeon crawler/bullet hell game I worked on for Precipice Games. It follows an ant queen as she fights to regain control of her cordyceps-infected colony. I was responsible for the level design of the individual room layouts that could be procedurally generated within the burrow, as well as the central hub area. But my role as a designer on the game was not just limited to levels. I was also on the gameplay systems design team for the game, coming up with player abilities, enemy types, and core mechanics/operations of the game.",
+        "slideA":        "queen_a.PNG",
+        "slideB":        "queen_b.PNG",
+        "slideC":        "queen_c.PNG",
+        "slideD":        "queen_d.PNG",
+        "slideE":        "queen_e.PNG",
+        "link":          "https://precipice-games.itch.io/queens-burrow",
+        "designprocess": "The Queen’s Burrow was developed during my final semester at Marist University as part of a capstone project in collaboration with my professor’s indie development team. Over the course of three months, our goal was to deliver a fully functional dungeon crawler game, and I joined a four-person design team tasked with establishing the game’s core systems — from combat and progression to the in-game economy. While my primary focus centered on enemy design and the development of the spellcasting system, I also contributed to the broader gameplay framework, including early progression pacing and player resource systems. I designed a range of enemy archetypes to challenge players across different combat scenarios and built a flexible spell tree that allowed for diverse playstyles and spell combinations. As development progressed, I collaborated with the programming team to refine and rebalance the core combat mechanics, which initially felt overly punishing. Together, we fine-tuned damage models, hit feedback, and player responsiveness to bring the gameplay experience closer to our intended design goals. In the final stretch of development, I shifted into level design, utilizing the finalized environment tileset to create a modular set of dungeon rooms for procedural generation. Although there are still areas I would refine given more development time, I’m proud of my contributions to The Queen’s Burrow, especially in shaping the game’s combat experience and supporting systems under a tight production timeline."
     },
+
     {
         "id":            6,
-        "name":          "Harbor [Work In Progress]",
+        "name":          "Blockouts",
         "subtitle":      "Counter-Strike 2",
-        "description":   "Harbor is an Arms Race map I am working on with a friend of mine, that is located at a shipping container dock. It features a unique mechanic where a crane periodically picks up and moves containers around the center of the map, dynamically shifting cover, opening up new sightlines, and even giving players a lift if they happen to be inside a container being moved. Players must also stay alert to where containers are placed, as standing underneath one could result in being crushed.",
-        "slideA":        "harbor_a.jpg",
-        "slideB":        "harbor_b.jpg",
-        "slideC":        "harbor_c.jpg",
-        "slideD":        "harbor_d.jpg",
-        "slideE":        "harbor_e.jpg",
-        "link":          "",
-        "designprocess": "This map is currently still in development"
-    },
-    {
-        "id":            7,
-        "name":          "Toxic [Work In Progress]",
-        "subtitle":      "Counter-Strike 2",
-        "description":   "Toxic is a solo project I'm currently working on, set in a radioactive waste plant. The map's standout feature is a series of experimental toxic sludge pits that slowly damage players who stand in them.",
-        "slideA":        "toxic_a.jpg",
-        "slideB":        "toxic_b.jpg",
-        "slideC":        "toxic_c.jpg",
-        "slideD":        "toxic_d.jpg",
-        "slideE":        "toxic_e.jpg",
-        "link":          "",
-        "designprocess": "With Toxic, I challenged myself to design a layout in a week, and within that time, I was able to take the concept from paper to blockout. My goal was to create a map where hazard zones are a central gameplay element—something that's a first for Counter-Strike, at least when compared to all officially released maps to date. And what better location to make a map with hazard zones then a radioactive waste plant with glowing green sludge? At the core of the design is a wall in T main that's slightly taller than the player. Most engagements revolve around this wall. On both sides, Ts and CTs each have access to upper and lower pathways. The wall is tall enough to block sightlines for players on the lower level, but short enough for players on the upper level to shoot each other over—creating a compelling crossfire dynamic between the two elevations. There's also a fourth flanking route on the opposite side of the map, giving Ts strong cover and powerful post-plant positioning. However, using it comes at the cost of making noise and/or taking damage while crossing through toxic sludge. All of these ideas came together into a layout that was very well received immediately after its creation and introduces some exciting new angles and gameplay elements never before seen in a Counter-Strike map. I am currently working on the art pass for this map in my free time."
-    },
-    {
-        "id":            8,
-        "name":          "Outback [Work In Progress]",
-        "subtitle":      "Counter-Strike 2",
-        "description":   "Outback is a blockout I created for a friend who asked me to handle the level design for a project focused on environment art. It's set at a biker gang clubhouse in the Australian outback. It is still a work in progress.",
-        "slideA":        "outback_a.jpg",
-        "slideB":        "outback_b.jpg",
-        "slideC":        "outback_c.jpg",
-        "slideD":        "outback_d.jpg",
-        "slideE":        "outback_e.jpg",
-        "link":          "https://steamcommunity.com/sharedfiles/filedetails/?id=3458884287",
-        "designprocess": "This map is currently still in development"
-    },
-    {
-        "id":            9,
-        "name":          "Queen's Burrow Level Generation",
-        "subtitle":      "Queen's Burrow",
-        "description":   "Queen's Burrow is an indie dungeon crawler/bullet hell game I worked on at Precipice Games. It follows an ant queen as she fights to regain control of her cordyceps-infected colony. I was responsible for the level design of the individual room layouts that could be procedurally generated within the burrow, as well as the central hub area. I was also on the gameplay systems design team for the game, coming up with player abilities, enemy types, and core mechanics/operations of the game.",
-        "slideA":        "",
-        "slideB":        "",
-        "slideC":        "",
-        "slideD":        "",
-        "slideE":        "",
-        "link":          "",
-        "designprocess": "This game is currently still in development"
+        "description":   "These are some other miscellaneous blockouts I created for Counter-Strike 2. I am currently in the process of building teams for 2 of these maps so that we can take them from blockout to final product.",
+        "slideA":        "carnival_a.JPG",
+        "slideB":        "hand_c.jpg",
+        "slideC":        "toxic_a.jpg",
+        "slideD":        "splash_a.JPG",
+        "slideE":        "outback_b.jpg",
+        "link":          "https://steamcommunity.com/id/ItsHomeFries/myworkshopfiles/",
+        "designprocess": "These blockouts are still works in progress."
     }
+
 ]
