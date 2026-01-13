@@ -160,4 +160,3 @@ collections:
           - { label: "After Image", name: "afterImage", widget: "image", required: true }
           - { label: "Alternate Text (After)", name: "afterImage_altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
           - { label: "Small Caption (After)", name: "afterImage_smallCaption", widget: "text", hint: "Tiny text showing at the bottom right corner.", required: false }
-          - { label: "Caption", name: "caption", widget: "text", required: false, hint: "Optional text to show under the comparison slider.", required: false }

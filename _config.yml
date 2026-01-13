@@ -1,8 +1,7 @@
 title: BMOL Digital
-description: "A Jekyll site for BMOL Digital"
+description: "Brenden Moloney's Portfolio"
 baseurl: "" # change if serving from a subpath (e.g., /repo-name)
-url: "https://USERNAME.github.io" # replace USERNAME
-theme: jekyll-theme-cayman
+url: "https://realBMOLDIGITAL.github.io" # replace USERNAME
 plugins:
   - jekyll-feed
 
