@@ -20,7 +20,7 @@ collections:
       preview: false
     fields:
       - { label: "Project Name", name: "title", widget: "string" }
-      - { label: "Project Description", name: "description", widget: "text", hint: "Max. 128 characters", pattern: ["^.{0,128}$"] }
+      - { label: "Project Description", name: "description", widget: "text", hint: "Max. 128 characters" }
       - label: "Game"
         name: "game"
         widget: "select"
