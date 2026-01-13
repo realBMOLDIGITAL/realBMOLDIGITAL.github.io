@@ -45,44 +45,44 @@ collections:
       - { label: "Image #3", name: "image3", widget: "image", required: true }
       - { label: "Image #4", name: "image4", widget: "image", required: true }
       - { label: "Image #5", name: "image5", widget: "image", required: true }
-    # ─────────────
-    # PAGE BUILDER
-    # ─────────────
       - label: "Page Sections"
         name: "sections"
         widget: "list"
         summary: "{{type}}"
         types:
 
-
-          # ── TITLE BLOCK ──
+          # ── Heading Block ──
           - label: "Heading Block"
             name: "heading"
             widget: "object"
             fields:
-              - { label: "Heading Text", name: "text", widget: "string", hint: "Example: Gameplay Features", required: true }
-          # ── TEXT BLOCK ──
+              - { label: "Heading Text", name: "text", widget: "string", required: true }
+
+          # ── Text Block ──
           - label: "Text Block"
             name: "text"
             widget: "object"
             fields:
-              - { label: "Text Content", name: "content", widget: "markdown", hint: "Visit markdownlivepreview.com to compose your text.", required: true }
-          # ── IMAGE BLOCK ──
+              - { label: "Text Content", name: "content", widget: "markdown", required: true }
+
+          # ── Image Block ──
           - label: "Image Block"
             name: "image"
             widget: "object"
             fields:
               - { label: "Image", name: "src", widget: "image", required: true }
-              - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
-              - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
-          # ── VIDEO BLOCK ──
+              - { label: "Alternate Text", name: "altText", widget: "text", required: true }
+              - { label: "Caption", name: "caption", widget: "text", required: false }
+
+          # ── Video Block ──
           - label: "Video Block"
             name: "video"
             widget: "object"
             fields:
-              - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
-              - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
-          # ── LIST BLOCK ──
+              - { label: "Video URL", name: "url", widget: "string", required: true }
+              - { label: "Caption", name: "caption", widget: "text", required: false }
+
+          # ── List Block ──
           - label: "List Block"
             name: "list"
             widget: "object"
@@ -90,12 +90,12 @@ collections:
               - label: "Items"
                 name: "items"
                 widget: "list"
-                hint: "Add items to the list."
                 field:
                   label: "Item"
                   name: "item"
                   widget: "string"
-          # ── DOUBLE COLUMN BLOCK ──
+
+          # ── Two Column Block ──
           - label: "Two Column Block"
             name: "two_columns"
             widget: "object"
@@ -110,19 +110,19 @@ collections:
                     widget: "object"
                     fields:
                       - { label: "Image", name: "src", widget: "image", required: true }
-                      - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
-                      - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
+                      - { label: "Alternate Text", name: "altText", widget: "text", required: true }
+                      - { label: "Caption", name: "caption", widget: "text", required: false }
                   - label: "Video Block"
                     name: "two_columns_video"
                     widget: "object"
                     fields:
-                      - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
-                      - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
+                      - { label: "Video URL", name: "url", widget: "string", required: true }
+                      - { label: "Caption", name: "caption", widget: "text", required: false }
                   - label: "Text Block"
                     name: "text"
                     widget: "object"
                     fields:
-                      - { label: "Text Content", name: "content", widget: "markdown", hint: "Add your text here.", required: true }
+                      - { label: "Text Content", name: "content", widget: "markdown", required: true }
               - label: "Right Column Content"
                 name: "right"
                 widget: "list"
@@ -133,27 +133,28 @@ collections:
                     widget: "object"
                     fields:
                       - { label: "Image", name: "src", widget: "image", required: true }
-                      - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
-                      - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
+                      - { label: "Alternate Text", name: "altText", widget: "text", required: true }
+                      - { label: "Caption", name: "caption", widget: "text", required: false }
                   - label: "Video Block"
                     name: "two_columns_video"
                     widget: "object"
                     fields:
-                      - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
-                      - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
+                      - { label: "Video URL", name: "url", widget: "string", required: true }
+                      - { label: "Caption", name: "caption", widget: "text", required: false }
                   - label: "Text Block"
                     name: "text"
                     widget: "object"
                     fields:
-                      - { label: "Text Content", name: "content", widget: "markdown", hint: "Add your text here.", required: true }
-          # ── BEFORE/AFTER BLOCK ──
+                      - { label: "Text Content", name: "content", widget: "markdown", required: true }
+
+          # ── Before/After Block ──
           - label: "Before/After Image Block"
             name: "before_after"
             widget: "object"
             fields:
               - { label: "Before Image", name: "beforeImage", widget: "image", required: true }
-              - { label: "Alternate Text (Before)", name: "beforeImage_altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
-              - { label: "Small Caption (Before)", name: "beforeImage_smallCaption", widget: "text", hint: "Tiny text showing at the bottom left corner.", required: false }
+              - { label: "Alternate Text (Before)", name: "beforeImage_altText", widget: "text", required: true }
+              - { label: "Small Caption (Before)", name: "beforeImage_smallCaption", widget: "text", required: false }
               - { label: "After Image", name: "afterImage", widget: "image", required: true }
-              - { label: "Alternate Text (After)", name: "afterImage_altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
-              - { label: "Small Caption (After)", name: "afterImage_smallCaption", widget: "text", hint: "Tiny text showing at the bottom right corner.", required: false }
+              - { label: "Alternate Text (After)", name: "afterImage_altText", widget: "text", required: true }
+              - { label: "Small Caption (After)", name: "afterImage_smallCaption", widget: "text", required: false }
