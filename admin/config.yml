@@ -4,11 +4,8 @@ backend:
   branch: main
   client_id: Ov23liLenlUMq0Bl1cal
   client_secret: e47daf1c671a2b75cbc591f9cab9b05933500a26
-  login: true
-  scope: "repo"
-
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+  media_folder: "assets/uploads"
+  public_folder: "/assets/uploads"
 
 site_url: https://realbmoldigital.github.io
 display_url: https://realbmoldigital.github.io
