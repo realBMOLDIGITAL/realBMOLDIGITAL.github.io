@@ -1,20 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    {% include meta.html %}
   </head>
   <body>
-    <header>
-      <div>
-        <h1><a href="{{ '/' | relative_url }}" style="all: inherit; cursor: pointer;">BMOLDIGITAL</a></h1><hr><h2>GAME AND LEVEL DESIGNER</h2>
-      </div>
-    </header>
+    {% include header.html %}
     <main>
       <div class="blog-block">
         <h2><span style="text-transform: uppercase">{{ page.title }}</span>: Project Breakdown</h2>
@@ -27,49 +17,150 @@
           <span class="blog-date">{{ page.date | date: "%B %d, %Y" }}</span>
         </div>
         <div class="blog-content">
-          <p class="blog-text">Lorem ipsum dolor sit, amet consectetur <a class="link" href="#">adipisicing</a> elit. Cumque ab enim iste possimus placeat provident nisi nobis? Totam dolor modi non maxime distinctio quo? Ad facilis autem quasi non quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi molestiae corporis, laboriosam ratione id cumque ipsam error quidem dolor perspiciatis, <b>fugit dolorum repellendus maxime numquam</b> facilis, natus debitis ipsa nesciunt?</p>
-          <h3>Blog Title Section</h3>
-          <ul>
-            <li>List 1</li>
-            <li>List 2</li>
-            <li>List 3</li>
-          </ul>
-          <figure>
-            <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7703e00d5bd15248218b60c81c71860feca7e059-1920x1049.jpg" alt="IMG">
-            <figcaption>Description of the image.</figcaption>
-          </figure>
-          <figure>
+          {% for section in page.sections %}
+            {% case section.type %}
+
+              {% when "heading" %}
+                <h3>{{ section.text }}</h3>
+
+              {% when "text" %}
+                <p class="blog-text">{{ section.content | markdownify }}</p>
+
+              {% when "list" %}
+                <ul>
+                  {% for item in section.items %}
+                    <li>{{ item.item }}</li>
+                  {% endfor %}
+                </ul>
+
+              {% when "image" %}
+                <figure>
+                  <img src="{{ section.src }}" alt="{{ section.altText }}">
+                  {% if section.caption %}
+                    <figcaption>{{ section.caption }}</figcaption>
+                  {% endif %}
+                </figure>
+
+              {% when "video" %}
+                <figure>
+                  <iframe
+                    src="{{ section.url }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                  </iframe>
+                  {% if section.caption %}
+                    <figcaption>{{ section.caption }}</figcaption>
+                  {% endif %}
+                </figure>
+
+              {% when "two_columns" %}
+                <div class="split">
+                  <div class="left">
+                    {% for block in section.left %}
+                      {% include render_block.html block=block %}
+                    {% endfor %}
+                  </div>
+                  <div class="right">
+                    {% for block in section.right %}
+                      {% include render_block.html block=block %}
+                    {% endfor %}
+                  </div>
+                </div>
+
+              {% when "before_after" %}
+                <figure class="container">
+                  <div>
+                    <div class="slider-image before">
+                      <p class="slider-text first">{{ section.beforeImage_smallCaption }}</p>
+                      <img src="{{ section.beforeImage }}" alt="{{ section.beforeImage_altText }}" />
+                    </div>
+                    <p class="slider-text second">{{ section.afterImage_smallCaption }}</p>
+                    <img class="slider-image after" src="{{ section.afterImage }}" alt="{{ section.afterImage_altText }}" />
+                  </div>
+                  <input type="range" min="0" max="100" value="50" aria-label="Before and after" class="slider" />
+                  <div class="slider-line" aria-hidden="true"></div>
+                  <div class="slider-button" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
+                      <rect width="256" height="256" fill="none"></rect>
+                      <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                      <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                      <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                      <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                      <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    </svg>
+                  </div>
+                  {% if section.caption %}
+                    <figcaption>{{ section.caption }}</figcaption>
+                  {% endif %}
+                </figure>
+
+            {% endcase %}
+          {% endfor %}
+
+
+
+
+
+
+
+
+          <!-- HERE IS WHERE THE BLOG GOES -->
+
+          <!-- This is the Header block -->
+            <!-- <h3>Heading Block</h3> -->
+
+
+          <!-- This is the text block -->
+            <!-- <p class="blog-text">Text Block</p> -->
+
+          <!-- This is the List block -->
+            <!-- <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul> -->
+          
+          <!-- This is the Image block -->
+          <!-- <figure>
+            <img src="Image" alt="Alternate Text">
+            <figcaption>Caption</figcaption>
+          </figure> -->
+
+          <!-- This is the Video block -->
+          <!-- <figure>
             <iframe
-              src="https://www.youtube.com/embed/IZNbYkhmfZs?si=HrckO2AYng71ozsS"
+              src="Video URL"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen>
             </iframe>
-            <figcaption>Description of the video.</figcaption>
-          </figure>
-          <div class="split">
+            <figcaption>Caption</figcaption>
+          </figure> -->
+
+          <!-- This is the Double Column block -->
+          <!-- <div class="split">
             <div class="left">
-              <p class="blog-text">This is some text for the first split section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi consectetur iusto officiis eveniet laudantium! Alias eligendi culpa dolore magnam, optio beatae ab, mollitia ipsa earum expedita est eum nulla nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cumque cupiditate deserunt nesciunt ea qui quae vel pariatur quasi minima dicta.</p>
+              Left Column Content
             </div>
             <div class="right">
-              <figure>
-                <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7703e00d5bd15248218b60c81c71860feca7e059-1920x1049.jpg" alt="IMG">
-                <figcaption>Description of the image.</figcaption>
-              </figure>
+              Right Column Content
             </div>
-          </div>
+          </div> -->
 
-
-          <figure class="container">
+          <!-- This is the Before and After block -->
+          <!-- <figure class="container">
             <div>
               <div class="slider-image before">
-                <p class="slider-text first">Before</p>
-                <img src="https://imgur.com/aBtvDwv.png" alt="color photo" />
+                <p class="slider-text first">Small Caption (Before)</p>
+                <img src="Before Image" alt="Alternate Text (Before)" />
               </div>
-              <p class="slider-text second">After</p>
-              <img class="slider-image after" src="https://imgur.com/NQh2TJb.png" alt="black and white" />
+              <p class="slider-text second">Small Caption (After)</p>
+              <img class="slider-image after" src="After Image" alt="Alternate Text (After)" />
             </div>
             <input type="range" min="0" max="100" value="50" aria-label="Before and after" class="slider" />
             <div class="slider-line" aria-hidden="true"></div>
@@ -83,14 +174,13 @@
                 <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
               </svg>
             </div>
-          </figure>
+          </figure> -->
 
 
 
 
         </div>
       </div>
-      {{ content }}
     </main>
     <footer>
       <p class="bmol">{{ site.time | date: '%Y' }} &copy; Brenden Moloney</p>
@@ -100,9 +190,18 @@
   </html>
 
 
-<script>
+<!-- <script>
 const container = document.querySelector('.container');
 document.querySelector('.slider').addEventListener('input', (e) => {
   container.style.setProperty('--position', `${e.target.value}%`);
 })
+</script> -->
+
+<script>
+  document.querySelectorAll('.container').forEach(container => {
+    const slider = container.querySelector('.slider');
+    slider.addEventListener('input', e => {
+      container.style.setProperty('--position', `${e.target.value}%`);
+    });
+  });
 </script>

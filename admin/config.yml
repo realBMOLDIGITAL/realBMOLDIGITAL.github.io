@@ -1,21 +1,163 @@
 backend:
   name: github
-  repo: username/portfolio
+  repo: realBMOLDIGITAL/realBMOLDIGITAL.github.io
   branch: main
-  auth_scope: repo
+  client_id: Ov23liLenlUMq0Bl1cal
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://realbmoldigital.github.io
+display_url: https://realbmoldigital.github.io
 
 collections:
   - name: "posts"
-    label: "Posts"
+    label: "Projects"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+    editor:
+      preview: false
+
+  - { label: "Project Name", name: "title", widget: "string" }
+  - { label: "Project Description", name: "description", widget: "text", hint: "Max. 128 characters", pattern: "^.{0,128}$" }
+
+  - label: "Game"
+    name: "game"
+    widget: "select"
+    options:
+      - { label: "CS2", value: "cs2" }
+      - { label: "CS:GO", value: "csgo" }
+      - { label: "Other", value: "other" }
+
+  - label: "Main Role"
+    name: "mainRole"
+    widget: "select"
+    options:
+      - Level Designer
+      - Environment Artist
+      - Gameplay Artist
+      - Sound Designer
+      - QA Tester
+      - Promotional Artist
+      - Project Manager
+      - Other
+  - { label: "Image #1 (Thumbnail)", name: "image1", widget: "image", required: true }
+  - { label: "Image #2", name: "image2", widget: "image", required: true }
+  - { label: "Image #3", name: "image3", widget: "image", required: true }
+  - { label: "Image #4", name: "image4", widget: "image", required: true }
+  - { label: "Image #5", name: "image5", widget: "image", required: true }
+
+# ─────────────
+# PAGE BUILDER
+# ─────────────
+  - label: "Page Sections"
+    name: "sections"
+    widget: "list"
+    summary: "{{type}}"
+    types:
+
+
+      # ── TITLE BLOCK ──
+      - label: "Heading Block"
+        name: "heading"
+        widget: "object"
+        fields:
+          - { label: "Heading Text", name: "text", widget: "string", hint: "Example: Gameplay Features", required: true }
+      # ── TEXT BLOCK ──
+      - label: "Text Block"
+        name: "text"
+        widget: "object"
+        fields:
+          - { label: "Text Content", name: "content", widget: "markdown", hint: "Visit markdownlivepreview.com to compose your text.", required: true }
+      # ── IMAGE BLOCK ──
+      - label: "Image Block"
+        name: "image"
+        widget: "object"
+        fields:
+          - { label: "Image", name: "src", widget: "image", required: true }
+          - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
+          - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
+      # ── VIDEO BLOCK ──
+      - label: "Video Block"
+        name: "video"
+        widget: "object"
+        fields:
+          - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
+          - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
+      # ── LIST BLOCK ──
+      - label: "List Block"
+        name: "list"
+        widget: "object"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            hint: "Add items to the list."
+            field:
+              label: "Item"
+              name: "item"
+              widget: "string"
+      # ── DOUBLE COLUMN BLOCK ──
+      - label: "Two Column Block"
+        name: "two_columns"
+        widget: "object"
+        fields:
+          - label: "Left Column Content"
+            name: "left"
+            widget: "list"
+            required: true
+            types:
+              - label: "Image Block"
+                name: "two_columns_image"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image", required: true }
+                  - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
+                  - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
+              - label: "Video Block"
+                name: "two_columns_video"
+                widget: "object"
+                fields:
+                  - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
+                  - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
+              - label: "Text Block"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "Text Content", name: "content", widget: "markdown", hint: "Add your text here.", required: true }
+          - label: "Right Column Content"
+            name: "right"
+            widget: "list"
+            required: true
+            types:
+              - label: "Image Block"
+                name: "two_columns_image"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image", required: true }
+                  - { label: "Alternate Text", name: "altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
+                  - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the image.", required: false }
+              - label: "Video Block"
+                name: "two_columns_video"
+                widget: "object"
+                fields:
+                  - { label: "Video URL", name: "url", widget: "string", hint: "https://www.youtube.com/embed/YOUR_VIDEO_ID", required: true }
+                  - { label: "Caption", name: "caption", widget: "text", hint: "Optional text to show under the video.", required: false }
+              - label: "Text Block"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "Text Content", name: "content", widget: "markdown", hint: "Add your text here.", required: true }
+      # ── BEFORE/AFTER BLOCK ──
+      - label: "Before/After Image Block"
+        name: "before_after"
+        widget: "object"
+        fields:
+          - { label: "Before Image", name: "beforeImage", widget: "image", required: true }
+          - { label: "Alternate Text (Before)", name: "beforeImage_altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
+          - { label: "Small Caption (Before)", name: "beforeImage_smallCaption", widget: "text", hint: "Tiny text showing at the bottom left corner.", required: false }
+          - { label: "After Image", name: "afterImage", widget: "image", required: true }
+          - { label: "Alternate Text (After)", name: "afterImage_altText", widget: "text", hint: "Describe the image visually to a blind person.", required: true }
+          - { label: "Small Caption (After)", name: "afterImage_smallCaption", widget: "text", hint: "Tiny text showing at the bottom right corner.", required: false }
+          - { label: "Caption", name: "caption", widget: "text", required: false, hint: "Optional text to show under the comparison slider.", required: false }
