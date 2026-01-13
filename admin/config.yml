@@ -2,8 +2,8 @@ backend:
   name: github
   repo: realBMOLDIGITAL/realBMOLDIGITAL.github.io
   branch: main
-  client_id: Ov23liLenlUMq0Bl1cal
-  client_secret: e47daf1c671a2b75cbc591f9cab9b05933500a26
+  client_id: Ov23liWZylspmMOGQJSF
+  client_secret: 76e9c980ddda8308bb8fb409140a6e3d4dd6355e
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
