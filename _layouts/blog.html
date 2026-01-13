@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1><a href="{{ '/' | relative_url }}" style="all: inherit; cursor: pointer;">BMOLDIGITAL</a></h1><hr><h2>GAME AND LEVEL DESIGNER</h2>
+      </div>
+    </header>
+    <main>
+      <div class="blog-block">
+        <h2><span style="text-transform: uppercase">{{ page.title }}</span>: Project Breakdown</h2>
+        <p class="map-desc">{{ page.description}}</p>
+        <div class="info">
+          <span class="blog-author">Brenden M.</span>
+          <span class="blog-separator">-</span>
+          <span class="blog-role">{{ page.mainRole }}</span>
+          <span class="blog-separator hm">&#8226;</span>
+          <span class="blog-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <div class="blog-content">
+          <p class="blog-text">Lorem ipsum dolor sit, amet consectetur <a class="link" href="#">adipisicing</a> elit. Cumque ab enim iste possimus placeat provident nisi nobis? Totam dolor modi non maxime distinctio quo? Ad facilis autem quasi non quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi molestiae corporis, laboriosam ratione id cumque ipsam error quidem dolor perspiciatis, <b>fugit dolorum repellendus maxime numquam</b> facilis, natus debitis ipsa nesciunt?</p>
+          <h3>Blog Title Section</h3>
+          <ul>
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+          </ul>
+          <figure>
+            <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7703e00d5bd15248218b60c81c71860feca7e059-1920x1049.jpg" alt="IMG">
+            <figcaption>Description of the image.</figcaption>
+          </figure>
+          <figure>
+            <iframe
+              src="https://www.youtube.com/embed/IZNbYkhmfZs?si=HrckO2AYng71ozsS"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+            <figcaption>Description of the video.</figcaption>
+          </figure>
+          <div class="split">
+            <div class="left">
+              <p class="blog-text">This is some text for the first split section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi consectetur iusto officiis eveniet laudantium! Alias eligendi culpa dolore magnam, optio beatae ab, mollitia ipsa earum expedita est eum nulla nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cumque cupiditate deserunt nesciunt ea qui quae vel pariatur quasi minima dicta.</p>
+            </div>
+            <div class="right">
+              <figure>
+                <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7703e00d5bd15248218b60c81c71860feca7e059-1920x1049.jpg" alt="IMG">
+                <figcaption>Description of the image.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+
+          <figure class="container">
+            <div>
+              <div class="slider-image before">
+                <p class="slider-text first">Before</p>
+                <img src="https://imgur.com/aBtvDwv.png" alt="color photo" />
+              </div>
+              <p class="slider-text second">After</p>
+              <img class="slider-image after" src="https://imgur.com/NQh2TJb.png" alt="black and white" />
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Before and after" class="slider" />
+            <div class="slider-line" aria-hidden="true"></div>
+            <div class="slider-button" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
+                <rect width="256" height="256" fill="none"></rect>
+                <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+              </svg>
+            </div>
+          </figure>
+
+
+
+
+        </div>
+      </div>
+      {{ content }}
+    </main>
+    <footer>
+      <p class="bmol">{{ site.time | date: '%Y' }} &copy; Brenden Moloney</p>
+      <p class="pablosrc">Created with &#9825; by <a href="https://pablosrc.github.io/" target="_blank">PabloSRC</a></p>
+    </footer>
+  </body>
+  </html>
+
+
+<script>
+const container = document.querySelector('.container');
+document.querySelector('.slider').addEventListener('input', (e) => {
+  container.style.setProperty('--position', `${e.target.value}%`);
+})
+</script>

@@ -1,0 +1,101 @@
+---
+layout: default
+---
+
+<div class="bio-box">
+    <div class="profile-picture">
+        <img src="https://realbmoldigital.github.io/images/brenden.png" alt="Profile Picture">
+    </div>
+    <div class="description">
+        <div class="first">
+            <h3><i>Hello, my name is</i> <p class="uppercase">Brenden Moloney</p></h3>
+            <p class="text">...and I'm an experienced level and game designer with skills in <span class="unreal">Unreal Engine</span>, <span class="unity">Unity</span>, and <span class="source1">source</span> and <span class="source2">source</span></p>
+        </div>
+        <div class="second">
+            <a><span>Connect with me on</span> <img src="/assets/images/logo_linkedin.svg" alt="LinkedIn Logo"></a>
+        </div>
+    </div>
+</div>
+<svg class="divider" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 100"><path d="M1000,100v-24l-227.5,18c-12.1,1-22.5-8.5-22.5-20.7s-10.4-21.8-22.5-20.8l-205,16.3c-12.1.9-22.5-8.6-22.5-20.8s-10.4-21.8-22.5-20.8l-205,16.3c-12.1,1-22.5-8.7-22.5-20.8s-10.4-21.7-22.5-20.7L0,20v80h1000Z"/></svg>
+<div class="post-list">
+    <p class="projects">My Projects</p>
+    <div class="post-list-invisible">
+        {% for post in site.posts %}
+        <article class="item">
+            <div class="slideshow">
+                <img src="{{ post.image1 }}" class="slide active" alt="">
+                <img src="{{ post.image2 }}" class="slide" alt="">
+                <img src="{{ post.image3 }}" class="slide" alt="">
+                <img src="{{ post.image4 }}" class="slide" alt="">
+                <img src="{{ post.image5 }}" class="slide" alt="">
+                <button class="arrow prev"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16"><path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753"/></svg></button>
+                <button class="arrow next"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16"><path d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753"/></svg></button>
+            </div>
+            <h4>{{ post.title }}</h4>
+            <p class="game-name {{ post.game }}">&nbsp;</p>
+            <h5>{{ post.description }}</h5>
+            <div class="button-box">
+                <a class="download" href="{{ post.download_url }}">Download</a>
+                <a class="readmore" href="{{ post.url }}">Project Breakdown</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+class Slideshow {
+  constructor(slideshowElement, intervalTime = 4000) {
+    this.slideshow = slideshowElement;
+    this.slides = this.slideshow.querySelectorAll(".slide");
+    this.prevBtn = this.slideshow.querySelector(".prev");
+    this.nextBtn = this.slideshow.querySelector(".next");
+    this.current = 0;
+    this.intervalTime = intervalTime;
+
+    this.showSlide = this.showSlide.bind(this);
+    this.nextSlide = this.nextSlide.bind(this);
+    this.prevSlide = this.prevSlide.bind(this);
+    this.resetInterval = this.resetInterval.bind(this);
+
+    this.nextBtn.addEventListener("click", () => {
+      this.nextSlide();
+      this.resetInterval();
+    });
+    this.prevBtn.addEventListener("click", () => {
+      this.prevSlide();
+      this.resetInterval();
+    });
+
+    this.startInterval();
+  }
+
+  showSlide(index) {
+    this.slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+    this.current = index;
+  }
+
+  nextSlide() {
+    this.showSlide((this.current + 1) % this.slides.length);
+  }
+
+  prevSlide() {
+    this.showSlide((this.current - 1 + this.slides.length) % this.slides.length);
+  }
+
+  startInterval() {
+    this.slideInterval = setInterval(() => this.nextSlide(), this.intervalTime);
+  }
+
+  resetInterval() {
+    clearInterval(this.slideInterval);
+    this.startInterval();
+  }
+}
+
+document.querySelectorAll(".slideshow").forEach(slideshowEl => {
+  new Slideshow(slideshowEl);
+});
+</script>

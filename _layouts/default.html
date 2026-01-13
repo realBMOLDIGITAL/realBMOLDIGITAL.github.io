@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1><a href="{{ '/' | relative_url }}" style="all: inherit; cursor: pointer;">BMOLDIGITAL</a></h1><hr><h2>GAME AND LEVEL DESIGNER</h2>
+      </div>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      <p class="bmol">{{ site.time | date: '%Y' }} &copy; Brenden Moloney</p>
+      <p class="pablosrc">Created with &#9825; by <a href="https://pablosrc.github.io/" target="_blank">PabloSRC</a></p>
+    </footer>
+  </body>
+  </html>
