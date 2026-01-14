@@ -1,11 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: realBMOLDIGITAL/realBMOLDIGITAL.github.io
   branch: main
-  # name: github
-  # repo: realBMOLDIGITAL/realBMOLDIGITAL.github.io
-  # branch: main
-  # client_id: Ov23liWZylspmMOGQJSF
-  # client_secret: 76e9c980ddda8308bb8fb409140a6e3d4dd6355e
+  base_url: "https://realbmoldigital.netlify.app/"
+  auth_endpoint: auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
