@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   # repo: realBMOLDIGITAL/realBMOLDIGITAL.github.io
   branch: main
   # client_id: Ov23liWZylspmMOGQJSF
