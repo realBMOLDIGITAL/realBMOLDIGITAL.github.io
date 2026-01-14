@@ -17,168 +17,28 @@
           <span class="blog-date">{{ page.date | date: "%B %d, %Y" }}</span>
         </div>
         <div class="blog-content">
-          {% for section in page.sections %}
-            {% case section.type %}
+          {% if page.sections %}
+            {% for section in page.sections %}
 
-              {% when "heading" %}
-                <h3>{{ section.text }}</h3>
+              {% if section.layout == "one-column" %}
+                <div class="single">
+                  {% include section-content.html content=section.content %}
+                </div>
+              {% endif %}
 
-              {% when "text" %}
-                <p class="blog-text">{{ section.content | markdownify }}</p>
-
-              {% when "list" %}
-                <ul>
-                  {% for item in section.items %}
-                    <li>{{ item.item }}</li>
-                  {% endfor %}
-                </ul>
-
-              {% when "image" %}
-                <figure>
-                  <img src="{{ section.src }}" alt="{{ section.altText }}">
-                  {% if section.caption %}
-                    <figcaption>{{ section.caption }}</figcaption>
-                  {% endif %}
-                </figure>
-
-              {% when "video" %}
-                <figure>
-                  <iframe
-                    src="{{ section.url }}"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                  </iframe>
-                  {% if section.caption %}
-                    <figcaption>{{ section.caption }}</figcaption>
-                  {% endif %}
-                </figure>
-
-              {% when "two_columns" %}
+              {% if section.layout == "two-column" %}
                 <div class="split">
                   <div class="left">
-                    {% for block in section.left %}
-                      {% include render_block.html block=block %}
-                    {% endfor %}
+                    {% include section-content.html content=section.left %}
                   </div>
                   <div class="right">
-                    {% for block in section.right %}
-                      {% include render_block.html block=block %}
-                    {% endfor %}
+                    {% include section-content.html content=section.right %}
                   </div>
                 </div>
+              {% endif %}
 
-              {% when "before_after" %}
-                <figure class="container">
-                  <div>
-                    <div class="slider-image before">
-                      <p class="slider-text first">{{ section.beforeImage_smallCaption }}</p>
-                      <img src="{{ section.beforeImage }}" alt="{{ section.beforeImage_altText }}" />
-                    </div>
-                    <p class="slider-text second">{{ section.afterImage_smallCaption }}</p>
-                    <img class="slider-image after" src="{{ section.afterImage }}" alt="{{ section.afterImage_altText }}" />
-                  </div>
-                  <input type="range" min="0" max="100" value="50" aria-label="Before and after" class="slider" />
-                  <div class="slider-line" aria-hidden="true"></div>
-                  <div class="slider-button" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
-                      <rect width="256" height="256" fill="none"></rect>
-                      <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                      <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                      <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                      <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                      <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                    </svg>
-                  </div>
-                  {% if section.caption %}
-                    <figcaption>{{ section.caption }}</figcaption>
-                  {% endif %}
-                </figure>
-
-            {% endcase %}
-          {% endfor %}
-
-
-
-
-
-
-
-
-          <!-- HERE IS WHERE THE BLOG GOES -->
-
-          <!-- This is the Header block -->
-            <!-- <h3>Heading Block</h3> -->
-
-
-          <!-- This is the text block -->
-            <!-- <p class="blog-text">Text Block</p> -->
-
-          <!-- This is the List block -->
-            <!-- <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-            </ul> -->
-          
-          <!-- This is the Image block -->
-          <!-- <figure>
-            <img src="Image" alt="Alternate Text">
-            <figcaption>Caption</figcaption>
-          </figure> -->
-
-          <!-- This is the Video block -->
-          <!-- <figure>
-            <iframe
-              src="Video URL"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
-            <figcaption>Caption</figcaption>
-          </figure> -->
-
-          <!-- This is the Double Column block -->
-          <!-- <div class="split">
-            <div class="left">
-              Left Column Content
-            </div>
-            <div class="right">
-              Right Column Content
-            </div>
-          </div> -->
-
-          <!-- This is the Before and After block -->
-          <!-- <figure class="container">
-            <div>
-              <div class="slider-image before">
-                <p class="slider-text first">Small Caption (Before)</p>
-                <img src="Before Image" alt="Alternate Text (Before)" />
-              </div>
-              <p class="slider-text second">Small Caption (After)</p>
-              <img class="slider-image after" src="After Image" alt="Alternate Text (After)" />
-            </div>
-            <input type="range" min="0" max="100" value="50" aria-label="Before and after" class="slider" />
-            <div class="slider-line" aria-hidden="true"></div>
-            <div class="slider-button" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none"></rect>
-                <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
-                <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-              </svg>
-            </div>
-          </figure> -->
-
-
-
-
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
     </main>

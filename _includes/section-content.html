@@ -1,0 +1,78 @@
+{% if include.content.type == "rich-text" %}
+  <div class="rich-text">
+    {{ include.content.text }}
+  </div>
+{% endif %}
+{% if include.content.type == "image" %}
+  <figure>
+    <img
+      src="{{ include.content.image }}"
+      alt="{{ include.content.altText | escape }}"
+    >
+
+    {% if include.content.caption %}
+      <figcaption>{{ include.content.caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
+{% if include.content.type == "video" %}
+  <figure>
+    <iframe
+      src="{{ include.content.video_url }}"
+      title="Embedded video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+
+    {% if include.content.video_caption %}
+      <figcaption>{{ include.content.video_caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
+{% if include.content.type == "comparison" %}
+  <figure class="container">
+    <div>
+      <div class="slider-image before">
+        {% if include.content.before_caption %}
+          <p class="slider-text first">
+            {{ include.content.before_caption }}
+          </p>
+        {% endif %}
+
+        <img
+          src="{{ include.content.before_image }}"
+          alt="{{ include.content.before_altText | escape }}"
+        />
+      </div>
+
+      {% if include.content.after_caption %}
+        <p class="slider-text second">
+          {{ include.content.after_caption }}
+        </p>
+      {% endif %}
+
+      <img
+        class="slider-image after"
+        src="{{ include.content.after_image }}"
+        alt="{{ include.content.after_altText | escape }}"
+      />
+    </div>
+
+    <input type="range" min="0" max="100" value="50"
+      aria-label="Before and after"
+      class="slider" />
+
+    <div class="slider-line" aria-hidden="true"></div>
+
+    <div class="slider-button" aria-hidden="true">
+      <!-- SVG unchanged -->
+      {{ include.svg | default: "" }}
+    </div>
+
+    {% if include.content.comparison_caption %}
+      <figcaption>{{ include.content.comparison_caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}

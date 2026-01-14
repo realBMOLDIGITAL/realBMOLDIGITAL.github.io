@@ -1,144 +1,346 @@
 media:
   input: assets/uploads
   output: /assets/uploads
+
 content:
-  - name: "posts"
-    label: "Projects"
-    folder: "_posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: false
+  - name: posts
+    label: Projects
+    path: _posts
+    filename: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-    - { label: "Project Name", name: "title", widget: "string" }
-    - { label: "Project Description", name: "description", widget: "text", hint: "Max. 128 characters" }
-    - label: "Game"
-      name: "game"
-      widget: "select"
-      options:
-        - { label: "CS2", value: "cs2" }
-        - { label: "CS:GO", value: "csgo" }
-        - { label: "Other", value: "other" }
-    - label: "Main Role"
-      name: "mainRole"
-      widget: "select"
-      options:
-        - Level Designer
-        - Environment Artist
-        - Gameplay Artist
-        - Sound Designer
-        - QA Tester
-        - Promotional Artist
-        - Project Manager
-        - Other
-    - { label: "Image #1 (Thumbnail)", name: "image1", widget: "image", required: true }
-    - { label: "Image #2", name: "image2", widget: "image", required: true }
-    - { label: "Image #3", name: "image3", widget: "image", required: true }
-    - { label: "Image #4", name: "image4", widget: "image", required: true }
-    - { label: "Image #5", name: "image5", widget: "image", required: true }
-    - label: "Page Sections"
-      name: "sections"
-      widget: "list"
-      summary: "{{type}}"
-      types:
-        # ── Heading Block ──
-        - label: "Heading Block"
-          name: "heading"
-          widget: "object"
-          fields:
-            - { label: "Heading Text", name: "text", widget: "string", required: true }
-        # ── Text Block ──
-        - label: "Text Block"
-          name: "text"
-          widget: "object"
-          fields:
-            - { label: "Text Content", name: "content", widget: "markdown", required: true }
-        # ── Image Block ──
-        - label: "Image Block"
-          name: "image"
-          widget: "object"
-          fields:
-            - { label: "Image", name: "src", widget: "image", required: true }
-            - { label: "Alternate Text", name: "altText", widget: "text", required: true }
-            - { label: "Caption", name: "caption", widget: "text", required: false }
-        # ── Video Block ──
-        - label: "Video Block"
-          name: "video"
-          widget: "object"
-          fields:
-            - { label: "Video URL", name: "url", widget: "string", required: true }
-            - { label: "Caption", name: "caption", widget: "text", required: false }
-        # ── List Block ──
-        - label: "List Block"
-          name: "list"
-          widget: "object"
-          fields:
-            - label: "Items"
-              name: "items"
-              widget: "list"
-              field:
-                label: "Item"
-                name: "item"
-                widget: "string"
-        # ── Two Column Block ──
-        - label: "Two Column Block"
-          name: "two_columns"
-          widget: "object"
-          fields:
-            - label: "Left Column Content"
-              name: "left"
-              widget: "list"
-              required: true
-              types:
-                - label: "Image Block"
-                  name: "two_columns_image"
-                  widget: "object"
-                  fields:
-                    - { label: "Image", name: "src", widget: "image", required: true }
-                    - { label: "Alternate Text", name: "altText", widget: "text", required: true }
-                    - { label: "Caption", name: "caption", widget: "text", required: false }
-                - label: "Video Block"
-                  name: "two_columns_video"
-                  widget: "object"
-                  fields:
-                    - { label: "Video URL", name: "url", widget: "string", required: true }
-                    - { label: "Caption", name: "caption", widget: "text", required: false }
-                - label: "Text Block"
-                  name: "text"
-                  widget: "object"
-                  fields:
-                    - { label: "Text Content", name: "content", widget: "markdown", required: true }
-            - label: "Right Column Content"
-              name: "right"
-              widget: "list"
-              required: true
-              types:
-                - label: "Image Block"
-                  name: "two_columns_image"
-                  widget: "object"
-                  fields:
-                    - { label: "Image", name: "src", widget: "image", required: true }
-                    - { label: "Alternate Text", name: "altText", widget: "text", required: true }
-                    - { label: "Caption", name: "caption", widget: "text", required: false }
-                - label: "Video Block"
-                  name: "two_columns_video"
-                  widget: "object"
-                  fields:
-                    - { label: "Video URL", name: "url", widget: "string", required: true }
-                    - { label: "Caption", name: "caption", widget: "text", required: false }
-                - label: "Text Block"
-                  name: "text"
-                  widget: "object"
-                  fields:
-                    - { label: "Text Content", name: "content", widget: "markdown", required: true }
-        # ── Before/After Block ──
-        - label: "Before/After Image Block"
-          name: "before_after"
-          widget: "object"
-          fields:
-            - { label: "Before Image", name: "beforeImage", widget: "image", required: true }
-            - { label: "Alternate Text (Before)", name: "beforeImage_altText", widget: "text", required: true }
-            - { label: "Small Caption (Before)", name: "beforeImage_smallCaption", widget: "text", required: false }
-            - { label: "After Image", name: "afterImage", widget: "image", required: true }
-            - { label: "Alternate Text (After)", name: "afterImage_altText", widget: "text", required: true }
-            - { label: "Small Caption (After)", name: "afterImage_smallCaption", widget: "text", required: false }
+      - name: sections
+        label: Page Sections
+        type: list
+        summary: "{{layout}} section"
+        fields:
+          # ─────────────────────────────
+          # SECTION LAYOUT
+          # ─────────────────────────────
+          - name: layout
+            label: Select Layout
+            type: select
+            required: true
+            options:
+              - label: One Column
+                value: one-column
+              - label: Two Columns
+                value: two-column
+          # ─────────────────────────────
+          # ONE COLUMN CONTENT
+          # ─────────────────────────────
+          - name: content
+            label: Content
+            type: object
+            showIf:
+              layout: one-column
+            fields:
+              - name: type
+                label: Select Content Type
+                type: select
+                required: true
+                options:
+                  - label: Text
+                    value: rich-text
+                  - label: Image
+                    value: image
+                  - label: Video
+                    value: video
+                  - label: Comparison
+                    value: comparison
+
+              # TEXT
+              - name: text
+                label: Text
+                type: rich-text
+                options:
+                  media: false
+                showIf:
+                  type: rich-text
+
+              # IMAGE
+              - name: image
+                label: Image
+                type: image
+                showIf:
+                  type: image
+
+              - name: caption
+                label: Caption
+                type: string
+                showIf:
+                  type: image
+
+              - name: altText
+                label: Alternate Text
+                type: string
+                showIf:
+                  type: image
+
+              # VIDEO
+              - name: video_url
+                label: Video URL (embed)
+                type: string
+                showIf:
+                  type: video
+
+              - name: video_caption
+                label: Video caption
+                type: string
+                showIf:
+                  type: video
+
+              # COMPARISON
+              - name: before_image
+                label: Before image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: before_caption
+                label: Before Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: before_altText
+                label: Before Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_image
+                label: After image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: after_caption
+                label: After Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_altText
+                label: After Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: comparison_caption
+                label: Caption
+                type: string
+                showIf:
+                  type: comparison
+          # ─────────────────────────────
+          # TWO COLUMN — LEFT
+          # ─────────────────────────────
+          - name: left
+            label: Left Column Content
+            type: object
+            showIf:
+              layout: two-column
+            fields:
+              - name: type
+                label: Select Content Type
+                type: select
+                required: true
+                options:
+                  - label: Text
+                    value: rich-text
+                  - label: Image
+                    value: image
+                  - label: Video
+                    value: video
+                  - label: Comparison
+                    value: comparison
+
+              # TEXT
+              - name: text
+                label: Text
+                type: rich-text
+                options:
+                  media: false
+                showIf:
+                  type: rich-text
+
+              # IMAGE
+              - name: image
+                label: Image
+                type: image
+                showIf:
+                  type: image
+
+              - name: caption
+                label: Caption
+                type: string
+                showIf:
+                  type: image
+
+              - name: altText
+                label: Alternate Text
+                type: string
+                showIf:
+                  type: image
+
+              # VIDEO
+              - name: video_url
+                label: Video URL (embed)
+                type: string
+                showIf:
+                  type: video
+
+              - name: video_caption
+                label: Video caption
+                type: string
+                showIf:
+                  type: video
+
+              # COMPARISON
+              - name: before_image
+                label: Before image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: before_caption
+                label: Before Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: before_altText
+                label: Before Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_image
+                label: After image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: after_caption
+                label: After Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_altText
+                label: After Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: comparison_caption
+                label: Caption
+                type: string
+                showIf:
+                  type: comparison
+
+          # ─────────────────────────────
+          # TWO COLUMN — RIGHT
+          # ─────────────────────────────
+          - name: right
+            label: Right Column Content
+            type: object
+            showIf:
+              layout: two-column
+            fields:
+              - name: type
+                label: Select Content Type
+                type: select
+                required: true
+                options:
+                  - label: Text
+                    value: rich-text
+                  - label: Image
+                    value: image
+                  - label: Video
+                    value: video
+                  - label: Comparison
+                    value: comparison
+
+              # TEXT
+              - name: text
+                label: Text
+                type: rich-text
+                options:
+                  media: false
+                showIf:
+                  type: rich-text
+
+              # IMAGE
+              - name: image
+                label: Image
+                type: image
+                showIf:
+                  type: image
+
+              - name: caption
+                label: Caption
+                type: string
+                showIf:
+                  type: image
+
+              - name: altText
+                label: Alternate Text
+                type: string
+                showIf:
+                  type: image
+
+              # VIDEO
+              - name: video_url
+                label: Video URL (embed)
+                type: string
+                showIf:
+                  type: video
+
+              - name: video_caption
+                label: Video caption
+                type: string
+                showIf:
+                  type: video
+
+              # COMPARISON
+              - name: before_image
+                label: Before image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: before_caption
+                label: Before Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: before_altText
+                label: Before Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_image
+                label: After image
+                type: image
+                showIf:
+                  type: comparison
+
+              - name: after_caption
+                label: After Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: after_altText
+                label: After Alternate Text
+                type: string
+                showIf:
+                  type: comparison
+
+              - name: comparison_caption
+                label: Caption
+                type: string
+                showIf:
+                  type: comparison
