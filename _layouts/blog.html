@@ -7,8 +7,8 @@
     {% include header.html %}
     <main>
       <div class="blog-block">
-        <h2><span style="text-transform: uppercase">{{ page.title }}</span>: Project Breakdown</h2>
-        <p class="map-desc">{{ page.description}}</p>
+        <h2 class="blog-title"><span style="text-transform: uppercase">{{ page.title }}</span>: Project Breakdown</h2>
+        <!-- <p class="map-desc">{{ page.description}}</p> -->
         <div class="info">
           <span class="blog-author">Brenden M.</span>
           <span class="blog-separator">-</span>
@@ -17,28 +17,14 @@
           <span class="blog-date">{{ page.date | date: "%B %d, %Y" }}</span>
         </div>
         <div class="blog-content">
-          {% if page.sections %}
-            {% for section in page.sections %}
-
-              {% if section.layout == "one-column" %}
-                <div class="single">
-                  {% include section-content.html content=section.content %}
-                </div>
-              {% endif %}
-
-              {% if section.layout == "two-column" %}
-                <div class="split">
-                  <div class="left">
-                    {% include section-content.html content=section.left %}
-                  </div>
-                  <div class="right">
-                    {% include section-content.html content=section.right %}
-                  </div>
-                </div>
-              {% endif %}
-
-            {% endfor %}
-          {% endif %}
+          {% for section in page.sections %}
+            {% case section._block %}
+              {% when "one-column" %}
+                {% include sections/one-column.html section=section %}
+              {% when "two-column" %}
+                {% include sections/two-column.html section=section %}
+            {% endcase %}
+          {% endfor %}
         </div>
       </div>
     </main>
@@ -49,19 +35,58 @@
   </body>
   </html>
 
-
-<!-- <script>
-const container = document.querySelector('.container');
-document.querySelector('.slider').addEventListener('input', (e) => {
-  container.style.setProperty('--position', `${e.target.value}%`);
-})
-</script> -->
-
 <script>
   document.querySelectorAll('.container').forEach(container => {
     const slider = container.querySelector('.slider');
     slider.addEventListener('input', e => {
       container.style.setProperty('--position', `${e.target.value}%`);
     });
+  });
+</script>
+<script>
+  class Slideshow {
+    constructor(slideshowElement, intervalTime = 4000) {
+      this.slideshow = slideshowElement;
+      this.slides = this.slideshow.querySelectorAll(".slide");
+      this.prevBtn = this.slideshow.querySelector(".prev");
+      this.nextBtn = this.slideshow.querySelector(".next");
+      this.current = 0;
+      this.intervalTime = intervalTime;
+      this.showSlide = this.showSlide.bind(this);
+      this.nextSlide = this.nextSlide.bind(this);
+      this.prevSlide = this.prevSlide.bind(this);
+      this.resetInterval = this.resetInterval.bind(this);
+      this.nextBtn.addEventListener("click", () => {
+        this.nextSlide();
+        this.resetInterval();
+      });
+      this.prevBtn.addEventListener("click", () => {
+        this.prevSlide();
+        this.resetInterval();
+      });
+      this.startInterval();
+    }
+    showSlide(index) {
+      this.slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      this.current = index;
+    }
+    nextSlide() {
+      this.showSlide((this.current + 1) % this.slides.length);
+    }
+    prevSlide() {
+      this.showSlide((this.current - 1 + this.slides.length) % this.slides.length);
+    }
+    startInterval() {
+      this.slideInterval = setInterval(() => this.nextSlide(), this.intervalTime);
+    }
+    resetInterval() {
+      clearInterval(this.slideInterval);
+      this.startInterval();
+    }
+  }
+  document.querySelectorAll(".slideshow").forEach(slideshowEl => {
+    new Slideshow(slideshowEl);
   });
 </script>

@@ -1,0 +1,34 @@
+<section class="split">
+  <div class="left">
+    {% for block in section.left-column %}
+      {% case block._block %}
+        {% when "text_block" %}
+          {% include blocks/text.html block=block %}
+        {% when "image_block" %}
+          {% include blocks/image.html block=block %}
+        {% when "video_block" %}
+          {% include blocks/video.html block=block %}
+        {% when "comparison_block" %}
+          {% include blocks/comparison.html block=block %}
+        {% when "slideshow_block" %}
+          {% include blocks/slideshow.html block=block %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+  <div class="right">
+    {% for block in section.right-column %}
+      {% case block._block %}
+        {% when "text_block" %}
+          {% include blocks/text.html block=block %}
+        {% when "image_block" %}
+          {% include blocks/image.html block=block %}
+        {% when "video_block" %}
+          {% include blocks/video.html block=block %}
+        {% when "comparison_block" %}
+          {% include blocks/comparison.html block=block %}
+        {% when "slideshow_block" %}
+          {% include blocks/slideshow.html block=block %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>

@@ -82,7 +82,9 @@ header {
         content: "";
         width: 100%;
         height: 100%;
-        background-image: url('https://giffiles.alphacoders.com/221/221137.gif');
+        background-image: url('/assets/images/bmol_banner.gif');
+        background-size: cover;
+        background-position: center center;
         position: absolute;
         left: 0;
         top: 0;
@@ -211,6 +213,7 @@ footer {
         }
     }
     .profile-picture {
+        background-color: #161e2a;
         width: 80%;
         img {width: 100%; border-radius: 2px; border: 1px solid $gray-600;}
     }
@@ -311,12 +314,12 @@ footer {
 .slideshow {
     position: relative;
     width: 100%;
-    max-width: 640px;
-    height: 200px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     margin: 0 auto;
     border: 1px solid $gray-700;
     border-radius: 4px;
+    background-color: #161e2a;
     .slide {
         position: absolute;
         inset: 0;
@@ -347,7 +350,6 @@ footer {
         &:hover {opacity: 1}
     }
 }
-
 .item {
     padding: 8px;
     width: 100%;
@@ -368,7 +370,7 @@ footer {
         margin-top: 4px;
         margin-bottom: 8px;
         color: rgba(241, 241, 230, 0.6);
-        &.cs2 {
+        &.counter-strike-2 {
             &::before {
                 content: "";
                 position: absolute;
@@ -392,7 +394,7 @@ footer {
                 color: rgba(241, 241, 230, 0.6);
             }
         }
-        &.cs {
+        &.counter-strike-global-offensive {
             &::before {
                 content: "";
                 position: absolute;
@@ -407,6 +409,30 @@ footer {
             }
             &::after {
                 content: "Counter-Strike: Global Offensive";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin-left: 4px;
+                color: rgba(241, 241, 230, 0.6);
+            }
+        }
+        &.other {
+            &::before {
+                content: "";
+                position: absolute;
+                left: -17px;
+                top: 0;
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+                background-image: url('/assets/images/logo_game_misc.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            &::after {
+                content: "Other Game / Engine";
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -463,14 +489,6 @@ footer {
     max-width: 312px;
     margin: 0 auto 48px auto;
     color: $gray-100;
-    h2 {
-        font-family: $font-secondary;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: $primary-500;
-        text-align: center;
-        margin-bottom: 16px;
-    }
     .map-desc {
         font-family: $font-primary;
         font-style: italic;
@@ -485,15 +503,27 @@ footer {
         position: relative;
         line-height: 1rem;
     }
-    .link {
+    p {
         font-family: $font-text;
-        font-size: 1rem;
-        color: $primary-400;
-        text-decoration: none;
-        transition: 0.15s;
-        &:hover {
-            text-decoration: underline;
-            color: $primary-300;
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        color: $gray-200;
+        margin-bottom: 12px;
+        margin-top: 6px;
+        b, strong {
+            font-weight: 600;
+            color: $gray-100;
+        }
+        a {
+            font-family: $font-text;
+            font-size: 1rem;
+            color: $primary-400;
+            text-decoration: none;
+            transition: 0.15s;
+            &:hover {
+                text-decoration: underline;
+                color: $primary-300;
+            }
         }
     }
     .info {
@@ -507,18 +537,7 @@ footer {
         .blog-date {display: block; margin-top: 4px;}
     }
     .hm {display: none}
-    .blog-text {
-        font-family: $font-text;
-        font-size: 0.9rem;
-        line-height: 1.2rem;
-        color: $gray-200;
-        margin-bottom: 16px;
-        b {
-            font-weight: 600;
-            color: $gray-100;
-        }
-    }
-    h3 {
+    h1, h2, h3, h4, h5, h6 {
         font-family: $font-secondary;
         font-size: 1.1rem;
         letter-spacing: 0.05rem;
@@ -528,7 +547,18 @@ footer {
         margin-bottom: 16px;
         text-transform: uppercase;
     }
-    ul {
+    .blog-title {
+        font-family: $font-secondary;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $primary-500;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .slideshow {
+        margin: 24px auto;
+    }
+    ul, ol {
         margin-left: 20px;
         margin-bottom: 16px;
         li {
@@ -544,11 +574,16 @@ footer {
             width: 100%;
             border: 1px solid $gray-700;
             border-radius: 2px;
+            background-color: #161e2a;
         }
         iframe {
             width: 100%;
             height: auto;
             aspect-ratio: 16 / 9;
+            border: 1px solid $gray-700;
+            border-radius: 2px;
+            background-color: #161e2a;
+            margin-top: 16px;
         }
         figcaption {
             font-family: $font-text;
@@ -564,16 +599,16 @@ footer {
         gap: 16px;
         .left, .right {width: 100%}
         figure {margin: 0}
+        .right {
+            text-align: right;
+        }
+        .slideshow {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: unset;
+        }
     }
 }
-
-
-
-
-
-
-
-
 
 .container {
     --position: 50%;
@@ -582,10 +617,13 @@ footer {
     position: relative;
     border-radius: 2px;
     border: 1px solid $gray-700;
+    background-color: #161e2a;
+    
 }
 .slider-image.after {
     width: 100%;
     height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: left;
 }
@@ -661,7 +699,6 @@ footer {
 
 
 
-
 // Media Queries
 @media (min-width: $md) {
     header {
@@ -705,12 +742,12 @@ footer {
     .post-list {
         .post-list-invisible {width: 60%}
     }
-    .slideshow {height: 200px}
+    // .slideshow {height: 200px}
     .item {max-width: 400px}
     .blog-block {
         max-width: 720px;
         margin: 0 auto 96px auto;
-        h2 {
+        .blog-title {
             font-size: 2.5rem;
         }
         .map-desc {
@@ -734,7 +771,7 @@ footer {
             .blog-date {display: inline; margin-top: 0}
         }
         .hm {display: inline}
-        .blog-text {
+        p {
             font-size: 0.95rem;
             line-height: 1.4rem;
         }
@@ -813,7 +850,7 @@ footer {
             width: 60%;
             .first {
                 height: 70%;
-                h3 {
+                h1, h2, h3, h4, h5, h6  {
                     font-size: 2rem;
                     .uppercase {
                         font-size: 3rem;
@@ -843,9 +880,9 @@ footer {
         .post-list-invisible {width: 80%}
     }
     .item {max-width: 720px}
-    .slideshow {height: 400px; max-width: unset;}
+    // .slideshow {height: 400px; max-width: unset;}
     .blog-block {
-        max-width: 864px;
+        min-width: 1400px;
         margin: 0 auto 96px auto;
         h2 {
             font-size: 2.5rem;
@@ -871,7 +908,7 @@ footer {
             .blog-date {display: inline; margin-top: 0}
         }
         .hm {display: inline}
-        .blog-text {
+        p {
             font-size: 1.1rem;
             line-height: 1.4rem;
         }
@@ -886,6 +923,9 @@ footer {
         .split {
             flex-wrap: nowrap;
             .left, .right {width: 50%}
+            figure {
+                margin-bottom: 16px;
+            }
         }
     }
     .slider {
