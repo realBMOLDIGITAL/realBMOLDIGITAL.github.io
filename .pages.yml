@@ -6,13 +6,75 @@ content:
   - name: posts
     label: Projects
     path: _posts
-    filename: "{{year}}-{{month}}-{{day}}-{{slug}}"
     type: collection
     fields:
+      - name: id
+        label: "📃 ID"
+        type: string
+        required: true
+        description: "NOTE: Remember to add a leading 0 if the number is single digit. Ex.: 05"
+      - name: layout
+        type: select
+        options:
+          values: [ blog ]
+        default: blog
+        required: true
+        description: "NOTE: Don't touch this, it's here merely for structural purposes."
+      - name: title
+        label: 📇 Name
+        type: string
+        required: true
+        description: "NOTE: Keep the name length ideally under 10 characters, otherwise it may (or may not) look wonky."
+      - name: description
+        label: 📇 Description
+        type: text
+        options:
+          maxlength: 180
+        required: true
+        description: "NOTE: The total length MUST be between 200-280 characters, otherwise it WILL look wonky."
+      - name: project-link
+        label: 🔗 URL
+        type: string
+        required: true
+      - name: custom_date
+        label: 🗓️ Custom Date
+        type: date
+        description: "NOTE: Only enter a custom date if you need it, otherwise leave blank and it will default to today's date."
+      - name: mainRole
+        label: Main Role
+        type: select
+        options:
+          values: ["Level Designer", "Environment Artist", "Gameplay Artist", "Sound Designer", "Promotional Artist", "Project Manager", "Other"]
+        required: true
+        default: "Level Designer"
+        description: "NOTE: If you had multiple roles, select the most relevant. If you need to add more, contact Pablo."
+      - name: game
+        label: 🎮 Videogame 
+        type: select
+        options:
+          values: ["Counter-Strike 2", "Counter-Strike: Global Offensive", "Other"]
+        description: "NOTE: If you need to add more, contact Pablo."
+        required: true
+      - name: thumbnails
+        label: 📷 Project Thumbnails
+        type: object
+        required: true
+        fields:
+          - name: thumbnails
+            label: 📸Project Thumbnails
+            fields:
+              - name: thumbnail
+                label: 📸 Thumbnail
+                type: image
+                options:
+                  multiple: true
+                  max: 9
+        description: "NOTE: These are the slideshow images. The first 5 will be shown on the Main Page slideshow. Upload a minimum of 5 and a maximum of 12 for consistency."
       - name: sections
         label: Page Sections
         type: block
         list: true
+        required: true
         blocks:
           - name: one-column
             label: Add Single-Column Section
@@ -20,6 +82,7 @@ content:
               - name: content_blocks
                 label: Content
                 type: block
+                list: true
                 blocks: 
                   - name: text_block
                     label: 💬Text Block
@@ -33,9 +96,6 @@ content:
                       - name: image
                         label: 📤 Upload your image here
                         type: image
-                      - name: image_alt_text
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: image_caption
                         label: 📜(Optional) Add a brief caption to show under the image
                         type: string
@@ -44,9 +104,6 @@ content:
                     fields:
                       - name: video_url
                         label: 🔗 Paste the video Embed URL
-                        type: string
-                      - name: video_title
-                        label: 🅰️ Paste the video title
                         type: string
                       - name: video_caption
                         label: 📜(Optional) Add a brief caption to show under the video
@@ -60,75 +117,24 @@ content:
                       - name: comparison_first_note
                         label: 📜(Optional) Write a note to show at the bottom left
                         type: string
-                      - name: comparison_first_alt
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: comparison_second_image
                         label: 📤 Upload the second image
                         type: image
                       - name: comparison_second_note
                         label: 📜(Optional) Write a note to show at the bottom right
                         type: string
-                      - name: comparison_second_alt
-                        label: ℹ️ Describe the image visually to a blind person
+                      - name: comparison_caption
+                        label: 📜 (Optional) Add a brief caption to show under the comparison component
                         type: string
                   - name: slideshow_block
                     label: 🎰 Slideshow
                     fields:
-                    - name: slideshow_image1
-                      label: 📤📸 Upload the first image, this one will act as one of the thumbnails.
+                    - name: slideshow_images
+                      label: 📤📸 Select the uploaded images (Max. 9).
                       type: image
-                    - name: slideshow_image1_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image2
-                      label: 📤📸 Upload the second image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image2_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image3
-                      label: 📤📸 Upload the third image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image3_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image4
-                      label: 📤📸 Upload the fourth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image4_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image5
-                      label: 📤📸 Upload the fifth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image5_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image6
-                      label: 📤 Upload the sixth image
-                      type: image
-                    - name: slideshow_image6_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image7
-                      label: 📤 Upload the seventh image
-                      type: image
-                    - name: slideshow_image7_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image8
-                      label: 📤 Upload the eighth image
-                      type: image
-                    - name: slideshow_image8_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image9
-                      label: 📤 Upload the ninth image
-                      type: image
-                    - name: slideshow_image9_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
+                      options:
+                        multiple: true
+                        max: 9
           - name: two-column
             label: Add Double-Column Section
             fields:
@@ -149,9 +155,6 @@ content:
                       - name: image
                         label: 📤 Upload your image here
                         type: image
-                      - name: image_alt_text
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: image_caption
                         label: 📜(Optional) Add a brief caption to show under the image
                         type: string
@@ -160,9 +163,6 @@ content:
                     fields:
                       - name: video_url
                         label: 🔗 Paste the video Embed URL
-                        type: string
-                      - name: video_title
-                        label: 🅰️ Paste the video title
                         type: string
                       - name: video_caption
                         label: 📜(Optional) Add a brief caption to show under the video
@@ -176,75 +176,24 @@ content:
                       - name: comparison_first_note
                         label: 📜(Optional) Write a note to show at the bottom left
                         type: string
-                      - name: comparison_first_alt
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: comparison_second_image
                         label: 📤 Upload the second image
                         type: image
                       - name: comparison_second_note
                         label: 📜(Optional) Write a note to show at the bottom right
                         type: string
-                      - name: comparison_second_alt
-                        label: ℹ️ Describe the image visually to a blind person
+                      - name: comparison_caption
+                        label: 📜 (Optional) Add a brief caption to show under the comparison component
                         type: string
                   - name: slideshow_block
                     label: 🎰 Slideshow
                     fields:
-                    - name: slideshow_image1
-                      label: 📤📸 Upload the first image, this one will act as one of the thumbnails.
+                    - name: slideshow_images
+                      label: 📤📸 Select the uploaded images (Max. 9).
                       type: image
-                    - name: slideshow_image1_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image2
-                      label: 📤📸 Upload the second image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image2_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image3
-                      label: 📤📸 Upload the third image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image3_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image4
-                      label: 📤📸 Upload the fourth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image4_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image5
-                      label: 📤📸 Upload the fifth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image5_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image6
-                      label: 📤 Upload the sixth image
-                      type: image
-                    - name: slideshow_image6_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image7
-                      label: 📤 Upload the seventh image
-                      type: image
-                    - name: slideshow_image7_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image8
-                      label: 📤 Upload the eighth image
-                      type: image
-                    - name: slideshow_image8_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image9
-                      label: 📤 Upload the ninth image
-                      type: image
-                    - name: slideshow_image9_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
+                      options:
+                        multiple: true
+                        max: 9
             - name: right-column
               label: Right Column Content
               type: block
@@ -262,9 +211,6 @@ content:
                       - name: image
                         label: 📤 Upload your image here
                         type: image
-                      - name: image_alt_text
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: image_caption
                         label: 📜(Optional) Add a brief caption to show under the image
                         type: string
@@ -273,9 +219,6 @@ content:
                     fields:
                       - name: video_url
                         label: 🔗 Paste the video Embed URL
-                        type: string
-                      - name: video_title
-                        label: 🅰️ Paste the video title
                         type: string
                       - name: video_caption
                         label: 📜(Optional) Add a brief caption to show under the video
@@ -289,72 +232,21 @@ content:
                       - name: comparison_first_note
                         label: 📜(Optional) Write a note to show at the bottom left
                         type: string
-                      - name: comparison_first_alt
-                        label: ℹ️ Describe the image visually to a blind person
-                        type: string
                       - name: comparison_second_image
                         label: 📤 Upload the second image
                         type: image
                       - name: comparison_second_note
                         label: 📜(Optional) Write a note to show at the bottom right
                         type: string
-                      - name: comparison_second_alt
-                        label: ℹ️ Describe the image visually to a blind person
+                      - name: comparison_caption
+                        label: 📜 (Optional) Add a brief caption to show under the comparison component
                         type: string
                   - name: slideshow_block
                     label: 🎰 Slideshow
                     fields:
-                    - name: slideshow_image1
-                      label: 📤📸 Upload the first image, this one will act as one of the thumbnails.
+                    - name: slideshow_images
+                      label: 📤📸 Select the uploaded images (Max. 9).
                       type: image
-                    - name: slideshow_image1_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image2
-                      label: 📤📸 Upload the second image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image2_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image3
-                      label: 📤📸 Upload the third image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image3_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image4
-                      label: 📤📸 Upload the fourth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image4_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image5
-                      label: 📤📸 Upload the fifth image, this one will act as one of the thumbnails.
-                      type: image
-                    - name: slideshow_image5_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image6
-                      label: 📤 Upload the sixth image
-                      type: image
-                    - name: slideshow_image6_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image7
-                      label: 📤 Upload the seventh image
-                      type: image
-                    - name: slideshow_image7_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image8
-                      label: 📤 Upload the eighth image
-                      type: image
-                    - name: slideshow_image8_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
-                    - name: slideshow_image9
-                      label: 📤 Upload the ninth image
-                      type: image
-                    - name: slideshow_image9_alt
-                      label: ℹ️ Describe the image visually to a blind person
-                      type: string
+                      options:
+                        multiple: true
+                        max: 9
